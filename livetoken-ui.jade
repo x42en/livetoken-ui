@@ -1,0 +1,77 @@
+template(name="loginLiveToken")
+	+each loginLiveTokenState
+		+template
+	.notification
+		div(class="{{notif_class}}")
+			i.fa(class='{{get_tips}}')
+			|#{notification}
+
+template(name="loginLiveTokenLogin")
+	form#loginLiveTokenLogin.form-login
+		fieldset
+			.country-selection(style="position: relative")
+				+liveTokenCountrySelection
+			each liveTokenAuthMethod
+				.row
+					label(for='selector') Enter your #{label}
+					input.form-control(type='text' name='{{name}}' placeholder="Enter your {{label}}" style='width: 20em; margin-left: 6em' autocomplete='off')
+			.row.controls
+				a(href='http://livetoken.io')
+					img.trademark(src='http://livetoken.io/assets/logo_secured_white.png' style='width: 80px; float: left; margin-left: 1em')
+				button.button.notify
+					i.fa.fa-shield
+					|Request Token
+
+template(name="loginLiveTokenVerify")
+	form#loginLiveTokenVerify.form-token
+		fieldset
+			each liveTokenAuthMethod
+				.row.token
+					label(for='selector') Enter code received on #{label}
+					input.form-control(type='text' name='{{name}}' placeholder="Enter code from {{label}}" autocomplete='off')
+
+			.row.controls
+				a(href='http://livetoken.io')
+					img.trademark(src='http://livetoken.io/assets/logo_secured_white.png' style='width: 80px; float: left; margin-left: 1em')
+				button.button.cancel#loginLiveTokenVerifyBack
+					i.fa.fa-angle-left
+					|Back
+				button.button.notify
+					i.fa.fa-sign-in
+					|Login
+
+template(name="loginLiveTokenAskUsername")
+	form#loginLiveTokenLogin.form-username
+		fieldset
+			.row
+				label(for='selector') What is your username ?
+				input.form-control(type='text' name='username' placeholder="Username" autocomplete='off')
+
+			.row.controls
+				button.button.notify
+					i.fa.fa-user
+					|Submit
+
+template(name="loginLiveTokenLogout")
+	form#loginLiveTokenLogout.form-logout
+		fieldset
+			.row
+				label #{loginLiveTokenUserInfo}
+			
+			.row.controls
+				button.button.cancel
+					i.fa.fa-signout
+					|Logout
+
+template(name='liveTokenCountrySelection')
+	ul.selected(style="position:absolute; top: 2em; left: 0.7em; width: 6em;")
+		li.visible.control(data-country="{{activeDialCode}}")
+			img.flag(style="width: 33px; margin-right: 0.4em" src="http://livetoken.io/assets/icons/flags/{{activeCountry}}.gif")
+			i.fa.fa-angle-down
+	ul(style="position:absolute; top: 4em; left: 0.7em; max-height: 10em; width: 12em; overflow: auto; border-radius: 5px; padding-top: 5px")
+		each indicatives
+			li.found.hidden.control(data-country="#{dial_code}" data-code="#{code}" style="background: white; padding: 0px 10px; font-size: 0.8em;")
+				img(src="http://livetoken.io/assets/icons/flags/#{code}.gif" style="width: 25px;")
+				| - #{name}
+		
+		

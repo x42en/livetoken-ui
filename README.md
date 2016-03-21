@@ -1,6 +1,6 @@
 # LiveToken-Ui
 
-[![Meteor Icon](http://icon.meteor.com/package/benmz:livetoken-ui)][atmosphere]
+![Meteor Icon](http://icon.meteor.com/package/benmz:livetoken-ui)]
 
 [![Build Status](https://secure.travis-ci.org/x62en/livetoken-ui.png?branch=master)](https://travis-ci.org/x62en/livetoken-ui)
 

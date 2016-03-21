@@ -1,6 +1,6 @@
 Package.describe({
   name: 'benmz:livetoken-ui',
-  version: '0.1.0',
+  version: '0.1.1',
   summary: 'User interface using LiveToken.io interaction (token authentication system)',
   git: 'https://github.com/x62en/livetoken-ui.git',
   documentation: 'README.md'
@@ -11,17 +11,23 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.1');
 
   // Core packages and 3rd party packages
-  api.use('livetoken-base');
+  api.use('benmz:livetoken-base@0.1.0');
+  api.use('coffeescript');
+  api.use('mquandalle:jade@0.4.9');
+  api.use('templating', 'client');
 
   // The files of this package
-  api.addFiles('livetoken-ui.coffee');
+  api.addFiles('livetoken-ui.jade', 'client');
+  api.addFiles('livetoken-ui.coffee', 'client');
 
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('livetoken-base');
+  api.use('benmz:livetoken-base');
   api.use('coffeescript');
+  api.use('mquandalle:jade');
   api.use('benmz:livetoken-ui');
+
   api.addFiles('livetoken-base-tests.js');
 });

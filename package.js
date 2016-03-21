@@ -1,6 +1,6 @@
 Package.describe({
   name: 'benmz:livetoken-ui',
-  version: '0.1.4',
+  version: '0.1.7',
   summary: 'User interface using LiveToken.io interaction (token authentication system)',
   git: 'https://github.com/x62en/livetoken-ui.git',
   documentation: 'README.md'
@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.1');
 
   // Core packages and 3rd party packages
-  api.use('benmz:livetoken-base@0.1.2');
+  api.use('benmz:livetoken-base@0.1.5');
   api.use('coffeescript');
   api.use('mquandalle:jade@0.4.9');
   api.use('templating', 'client');

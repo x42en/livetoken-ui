@@ -17,6 +17,7 @@ ___
 
 Install with meteor:
   ```sh
+    meteor add accounts-base
     meteor add benmz:livetoken-ui
   ```
 
